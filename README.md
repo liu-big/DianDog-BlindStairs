@@ -5,27 +5,29 @@
 > 版本代号：`Blind Climb Standstill`  
 > 发布日期：2026-10-30  
 > 主策略文件：[`checkpoints/policy_blind52_iter1200.pt`](checkpoints/policy_blind52_iter1200.pt)  
-> 演示视频：[`media/demo_mujoco_blind_climb.mp4`](media/demo_mujoco_blind_climb.mp4)
+> 演示视频：[`media/demo.mp4`](media/demo.mp4)
 
 ---
 
 ## 演示视频
 
-MuJoCo 双楼梯场景（15cm / 20cm）盲策略遥控评测：
+MuJoCo 双楼梯场景（15cm / 20cm）盲策略遥控评测（约 38s，H.264）。
 
-https://gitee.com/yonheybot/diandog-blindstairs-v1.0/raw/master/media/demo_mujoco_blind_climb.mp4
+### 在线观看 / 下载（推荐 GitHub）
 
-本地打开：
+- **GitHub 在线打开（可播放）**：[media/demo.mp4](https://github.com/liu-big/DianDog-BlindStairs/blob/main/media/demo.mp4)
+- **GitHub 直链下载**：https://raw.githubusercontent.com/liu-big/DianDog-BlindStairs/main/media/demo.mp4
+- **Gitee 文件页**：[media/demo.mp4](https://gitee.com/yonheybot/diandog-blindstairs-v1.0/blob/master/media/demo.mp4)  
+  （Gitee raw 常 403，请用文件页点「下载」或 Clone）
+
+### 仓库内相对路径
+
+[`media/demo.mp4`](media/demo.mp4) · 同内容备份名 [`media/demo_mujoco_blind_climb.mp4`](media/demo_mujoco_blind_climb.mp4)
 
 ```bash
-xdg-open media/demo_mujoco_blind_climb.mp4
-# 或仓库内相对路径
-# media/demo_mujoco_blind_climb.mp4
+# Clone 后本地播放
+xdg-open media/demo.mp4
 ```
-
-<video src="media/demo_mujoco_blind_climb.mp4" controls width="720"></video>
-
-若 Gitee 网页无法内嵌播放，请点击上方 raw 链接下载，或 Clone 后本地观看。
 
 ---
 
