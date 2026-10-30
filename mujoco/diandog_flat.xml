@@ -1,0 +1,147 @@
+<mujoco model="diandog">
+  <compiler angle="radian" meshdir="../assets/meshes" autolimits="true"/>
+  <option timestep="0.005" gravity="0 0 -9.81" iterations="50" solver="Newton" cone="elliptic" impratio="1"/>
+  <default>
+    <geom friction="1.0 0.005 0.0001" condim="3"/>
+  </default>
+  <asset>
+    <mesh name="base_link" file="base_link.STL"/>
+    <mesh name="fl_haa" file="fl_haa.STL"/>
+    <mesh name="fl_hfe" file="fl_hfe.STL"/>
+    <mesh name="fl_kfe" file="fl_kfe.STL"/>
+    <mesh name="fl_ft" file="fl_ft.STL"/>
+    <mesh name="fr_haa" file="fr_haa.STL"/>
+    <mesh name="fr_hfe" file="fr_hfe.STL"/>
+    <mesh name="fr_kfe" file="fr_kfe.STL"/>
+    <mesh name="fr_ft" file="fr_ft.STL"/>
+    <mesh name="rl_haa" file="rl_haa.STL"/>
+    <mesh name="rl_hfe" file="rl_hfe.STL"/>
+    <mesh name="rl_kfe" file="rl_kfe.STL"/>
+    <mesh name="rl_ft" file="rl_ft.STL"/>
+    <mesh name="rr_haa" file="rr_haa.STL"/>
+    <mesh name="rr_hfe" file="rr_hfe.STL"/>
+    <mesh name="rr_kfe" file="rr_kfe.STL"/>
+    <mesh name="rr_ft" file="rr_ft.STL"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" width="256" height="256"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5"/>
+  </asset>
+  <worldbody>
+    <light pos="0 0 3" dir="0 0 -1"/>
+    <geom name="floor" type="plane" size="20 20 0.1" material="groundplane"/>
+    <body name="base_link" pos="0 0 0.48">
+      <freejoint name="root"/>
+      <inertial pos="-0.001000 -0.002000 -0.077000" mass="6.832" fullinertia="0.077000 0.126000 0.102000 0.000000 0.000000 0.000000"/>
+      <geom type="mesh" mesh="base_link" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+      <geom type="box" pos="0 0 -0.04" size="0.16 0.09 0.04" rgba="0 0 0 0"/>
+      <body name="fl_haa" pos="0.1965 0.0696183648743096 -0.0675000000000053">
+        <joint name="fl_haa_j1" type="hinge" axis="-1 0 0" range="-0.52 0.52" actuatorfrcrange="-40 40" damping="0.1" armature="0.01" frictionloss="0.0"/>
+        <inertial pos="0.063000 -0.001000 0.000000" mass="1.035" fullinertia="0.001000 0.006000 0.005000 0.000000 0.000000 0.000000"/>
+        <geom type="mesh" mesh="fl_haa" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+        <geom type="box" pos="0.060  0.006  0.000" size="0.04 0.0175 0.03" rgba="0 0 0 0"/>
+        <body name="fl_hfe" pos="0.0636083980245825 0.0882500000000009 0">
+          <joint name="fl_hfe_j2" type="hinge" axis="0 -1 0" range="-1.2 1.2" actuatorfrcrange="-40 40" damping="0.1" armature="0.01" frictionloss="0.0"/>
+          <inertial pos="-0.011000 -0.010000 -0.013000" mass="1.546" fullinertia="0.005000 0.006000 0.004000 0.000000 0.000000 0.000000"/>
+          <geom type="mesh" mesh="fl_hfe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+          <geom type="box" pos="-0.033 -0.009 -0.073" size="0.04 0.0225 0.08" rgba="0 0 0 0"/>
+          <body name="fl_kfe" pos="-0.0978005526581622 0.0475000000000042 -0.174456446999702">
+            <joint name="fl_kfe_j3" type="hinge" axis="0 1 0" range="-1.7 0.15" actuatorfrcrange="-40 40" damping="0.1" armature="0.01" frictionloss="0.0"/>
+            <inertial pos="0.058000 -0.022000 -0.075000" mass="0.239" fullinertia="0.002000 0.003000 0.001000 0.000000 0.000000 0.000000"/>
+            <geom type="mesh" mesh="fl_kfe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+            <geom type="box" pos="0.050 -0.022 -0.088" size="0.03 0.009 0.07" rgba="0 0 0 0"/>
+            <body name="fl_ft" pos="0.0977041290232654 -0.0144234895969824 -0.190659433054511">
+              <inertial pos="-0.003000 -0.008000 -0.012000" mass="0.047" fullinertia="0.000001 0.000001 0.000001 0.000000 0.000000 0.000000"/>
+              <geom type="mesh" mesh="fl_ft" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+              <geom type="sphere" pos="-0.002 -0.008 -0.018" size="0.015" rgba="0 0 0 0"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="fr_haa" pos="0.1965 -0.0703816351256854 -0.067500000000002">
+        <joint name="fr_haa_j1" type="hinge" axis="-1 0 0" range="-0.52 0.52" actuatorfrcrange="-40 40" damping="0.1" armature="0.01" frictionloss="0.0"/>
+        <inertial pos="0.063000 0.001000 0.000000" mass="1.035" fullinertia="0.001000 0.006000 0.005000 0.000000 0.000000 0.000000"/>
+        <geom type="mesh" mesh="fr_haa" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+        <geom type="box" pos="0.060 -0.006  0.000" size="0.04 0.0175 0.03" rgba="0 0 0 0"/>
+        <body name="fr_hfe" pos="0.0636083980245823 -0.10625 0">
+          <joint name="fr_hfe_j2" type="hinge" axis="0 1 0" range="-1.2 1.2" actuatorfrcrange="-40 40" damping="0.1" armature="0.01" frictionloss="0.0"/>
+          <inertial pos="-0.011000 0.028000 -0.013000" mass="1.546" fullinertia="0.006000 0.006000 0.005000 0.000000 0.000000 0.000000"/>
+          <geom type="mesh" mesh="fr_hfe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+          <geom type="box" pos="-0.034  0.027 -0.073" size="0.04 0.0225 0.08" rgba="0 0 0 0"/>
+          <body name="fr_kfe" pos="-0.097772 -0.0295 -0.17447">
+            <joint name="fr_kfe_j3" type="hinge" axis="0 -1 0" range="-0.15 1.7" actuatorfrcrange="-40 40" damping="0.1" armature="0.01" frictionloss="0.0"/>
+            <inertial pos="0.058000 0.023000 -0.074000" mass="0.242" fullinertia="0.002000 0.003000 0.001000 0.000000 0.000000 0.000000"/>
+            <geom type="mesh" mesh="fr_kfe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+            <geom type="box" pos="0.050  0.019 -0.088" size="0.03 0.0125 0.07" rgba="0 0 0 0"/>
+            <body name="fr_ft" pos="0.097735 0.015683 -0.19064">
+              <inertial pos="-0.003000 0.007000 -0.012000" mass="0.047" fullinertia="0.000001 0.000001 0.000001 0.000000 0.000000 0.000000"/>
+              <geom type="mesh" mesh="fr_ft" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+              <geom type="sphere" pos="-0.002 0.007 -0.018" size="0.015" rgba="0 0 0 0"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="rl_haa" pos="-0.1965 0.069618 -0.0675">
+        <joint name="rl_haa_j1" type="hinge" axis="1 0 0" range="-0.52 0.52" actuatorfrcrange="-40 40" damping="0.1" armature="0.01" frictionloss="0.0"/>
+        <inertial pos="-0.063000 -0.001000 0.000000" mass="1.035" fullinertia="0.001000 0.006000 0.005000 0.000000 0.000000 0.000000"/>
+        <geom type="mesh" mesh="rl_haa" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+        <geom type="box" pos="-0.060  0.006  0.000" size="0.04 0.0175 0.03" rgba="0 0 0 0"/>
+        <body name="rl_hfe" pos="-0.063608398024582 0.10625 0">
+          <joint name="rl_hfe_j2" type="hinge" axis="0 -1 0" range="-1.2 1.2" actuatorfrcrange="-40 40" damping="0.1" armature="0.01" frictionloss="0.0"/>
+          <inertial pos="-0.011000 -0.028000 -0.013000" mass="1.546" fullinertia="0.006000 0.006000 0.005000 0.000000 0.000000 0.000000"/>
+          <geom type="mesh" mesh="rl_hfe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+          <geom type="box" pos="-0.033 -0.027 -0.073" size="0.04 0.0225 0.08" rgba="0 0 0 0"/>
+          <body name="rl_kfe" pos="-0.0978621121402269 0.0294999999999948 -0.174421922382063">
+            <joint name="rl_kfe_j3" type="hinge" axis="0 1 0" range="-1.7 0.15" actuatorfrcrange="-40 40" damping="0.1" armature="0.01" frictionloss="0.0"/>
+            <inertial pos="0.058000 -0.022000 -0.075000" mass="0.24" fullinertia="0.002000 0.003000 0.001000 0.000000 0.000000 0.000000"/>
+            <geom type="mesh" mesh="rl_kfe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+            <geom type="box" pos="0.050 -0.019 -0.088" size="0.03 0.0125 0.07" rgba="0 0 0 0"/>
+            <body name="rl_ft" pos="0.097636839343605 -0.014423496476795 -0.190693900908907">
+              <inertial pos="-0.003000 -0.008000 -0.012000" mass="0.047" fullinertia="0.000001 0.000001 0.000001 0.000000 0.000000 0.000000"/>
+              <geom type="mesh" mesh="rl_ft" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+              <geom type="sphere" pos="-0.002 -0.008 -0.018" size="0.015" rgba="0 0 0 0"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="rr_haa" pos="-0.1965 -0.0703816351256815 -0.067499999999992">
+        <joint name="rr_haa_j1" type="hinge" axis="1 0 0" range="-0.52 0.52" actuatorfrcrange="-40 40" damping="0.1" armature="0.01" frictionloss="0.0"/>
+        <inertial pos="-0.063000 0.001000 0.000000" mass="1.035" fullinertia="0.001000 0.006000 0.005000 0.000000 0.000000 0.000000"/>
+        <geom type="mesh" mesh="rr_haa" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+        <geom type="box" pos="-0.060 -0.006  0.000" size="0.04 0.0175 0.03" rgba="0 0 0 0"/>
+        <body name="rr_hfe" pos="-0.0636083980245817 -0.10625000000001 0">
+          <joint name="rr_hfe_j2" type="hinge" axis="0 1 0" range="-1.2 1.2" actuatorfrcrange="-40 40" damping="0.1" armature="0.01" frictionloss="0.0"/>
+          <inertial pos="-0.011000 0.028000 -0.013000" mass="1.546" fullinertia="0.006000 0.006000 0.005000 0.000000 0.000000 0.000000"/>
+          <geom type="mesh" mesh="rr_hfe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+          <geom type="box" pos="-0.034  0.027 -0.073" size="0.04 0.0225 0.08" rgba="0 0 0 0"/>
+          <body name="rr_kfe" pos="-0.09774 -0.0295 -0.17449">
+            <joint name="rr_kfe_j3" type="hinge" axis="0 -1 0" range="-0.15 1.7" actuatorfrcrange="-40 40" damping="0.1" armature="0.01" frictionloss="0.0"/>
+            <inertial pos="0.058000 0.022000 -0.074000" mass="0.24" fullinertia="0.002000 0.003000 0.001000 0.000000 0.000000 0.000000"/>
+            <geom type="mesh" mesh="rr_kfe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+            <geom type="box" pos="0.050  0.019 -0.088" size="0.03 0.0125 0.07" rgba="0 0 0 0"/>
+            <body name="rr_ft" pos="0.09777 0.015683 -0.19063">
+              <inertial pos="-0.003000 0.007000 -0.012000" mass="0.047" fullinertia="0.000001 0.000001 0.000001 0.000000 0.000000 0.000000"/>
+              <geom type="mesh" mesh="rr_ft" contype="0" conaffinity="0" group="1" density="0" rgba="0.75 0.78 0.85 1"/>
+              <geom type="sphere" pos="-0.002 0.007 -0.018" size="0.015" rgba="0 0 0 0"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="act_fl_haa_j1" joint="fl_haa_j1" gear="1" ctrlrange="-40 40" forcerange="-40 40"/>
+    <motor name="act_fl_hfe_j2" joint="fl_hfe_j2" gear="1" ctrlrange="-40 40" forcerange="-40 40"/>
+    <motor name="act_fl_kfe_j3" joint="fl_kfe_j3" gear="1" ctrlrange="-40 40" forcerange="-40 40"/>
+    <motor name="act_fr_haa_j1" joint="fr_haa_j1" gear="1" ctrlrange="-40 40" forcerange="-40 40"/>
+    <motor name="act_fr_hfe_j2" joint="fr_hfe_j2" gear="1" ctrlrange="-40 40" forcerange="-40 40"/>
+    <motor name="act_fr_kfe_j3" joint="fr_kfe_j3" gear="1" ctrlrange="-40 40" forcerange="-40 40"/>
+    <motor name="act_rl_haa_j1" joint="rl_haa_j1" gear="1" ctrlrange="-40 40" forcerange="-40 40"/>
+    <motor name="act_rl_hfe_j2" joint="rl_hfe_j2" gear="1" ctrlrange="-40 40" forcerange="-40 40"/>
+    <motor name="act_rl_kfe_j3" joint="rl_kfe_j3" gear="1" ctrlrange="-40 40" forcerange="-40 40"/>
+    <motor name="act_rr_haa_j1" joint="rr_haa_j1" gear="1" ctrlrange="-40 40" forcerange="-40 40"/>
+    <motor name="act_rr_hfe_j2" joint="rr_hfe_j2" gear="1" ctrlrange="-40 40" forcerange="-40 40"/>
+    <motor name="act_rr_kfe_j3" joint="rr_kfe_j3" gear="1" ctrlrange="-40 40" forcerange="-40 40"/>
+  </actuator>
+  <keyframe>
+    <key name="stand" qpos="0 0 0.48 1 0 0 0 0.04 -0.25 -0.4 -0.04 0.25 0.4 -0.04 -0.25 -0.4 0.04 0.25 0.4"/>
+  </keyframe>
+</mujoco>
